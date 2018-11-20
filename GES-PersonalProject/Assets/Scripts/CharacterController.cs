@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour
     private float accelerationForce = 10;
 
     [SerializeField]
-    private float maxSpeed = 5;
+    private float maxSpeed = 10;
 
     [SerializeField]
     private float jumpForce = 10;
@@ -18,10 +18,21 @@ public class CharacterController : MonoBehaviour
 
     private float horizontalInput;
 
+    bool facingRight = true;
+
+    Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     // Update is called once per frame 
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -32,6 +43,11 @@ public class CharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        if (horizontalInput > 0 && !facingRight)
+            Flip();
+        else if (horizontalInput < 0 && facingRight)
+            Flip();
     }
 
     private void Move()
@@ -40,5 +56,13 @@ public class CharacterController : MonoBehaviour
         Vector2 clampedVelocity = rb2d.velocity;
         clampedVelocity.x = Mathf.Clamp(rb2d.velocity.x, -maxSpeed, maxSpeed);
         rb2d.velocity = clampedVelocity;
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
