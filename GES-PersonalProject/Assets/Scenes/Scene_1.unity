@@ -3060,7 +3060,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67660d83f32f0f479e68bcffb7c6290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  accelerationForce: 5
+  maxSpeed: 5
+  jumpForce: 5
   rb2d: {fileID: 1640587847}
 --- !u!212 &1640587845
 SpriteRenderer:
@@ -3140,7 +3142,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1640587848
 BoxCollider2D:
   m_ObjectHideFlags: 0
