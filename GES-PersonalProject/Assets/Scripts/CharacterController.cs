@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D rb2d;
 
     private float horizontalInput;
+    private Checkpoint currentCheckpoint;
 
     bool facingRight = true;
 
@@ -64,5 +66,25 @@ public class CharacterController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public void Respawn()
+    {
+        if (currentCheckpoint == null)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else
+        {
+            rb2d.velocity = Vector2.zero;
+            transform.position = currentCheckpoint.transform.position;
+        }
+    }
+
+    public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
+    {
+        if (currentCheckpoint != null)
+            currentCheckpoint.SetIsActivated(false);
+
+        currentCheckpoint = newCurrentCheckpoint;
+        currentCheckpoint.SetIsActivated(true);
     }
 }
