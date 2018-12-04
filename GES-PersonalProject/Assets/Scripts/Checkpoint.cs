@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour {
+public class Checkpoint : MonoBehaviour
+{
 
     [SerializeField]
     private Color inactivatedColor, activatedColor;
@@ -13,10 +14,10 @@ public class Checkpoint : MonoBehaviour {
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        UpdateColor();
+        //UpdateColor();
     }
 
-    private void UpdateColor()
+    /*private void UpdateColor()
     {
         Color color = inactivatedColor;
 
@@ -24,12 +25,12 @@ public class Checkpoint : MonoBehaviour {
             color = activatedColor;
 
         spriteRenderer.color = color;
-    }
+    }*/
 
     public void SetIsActivated(bool value)
     {
         isActivated = value;
-        UpdateColor();
+        //UpdateColor();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
