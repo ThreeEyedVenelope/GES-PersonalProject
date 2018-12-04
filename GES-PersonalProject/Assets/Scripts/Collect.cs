@@ -28,5 +28,4 @@ public class Collect : MonoBehaviour
             Destroy(gameObject, audioSource.clip.length);
         }
     }
-	
 }
