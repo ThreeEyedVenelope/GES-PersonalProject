@@ -10,7 +10,7 @@ public class Collect : MonoBehaviour
     private AudioSource audioSource;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
-    private static int count = 0;
+    public static int count = 0;
 
     private void Start()
     {
