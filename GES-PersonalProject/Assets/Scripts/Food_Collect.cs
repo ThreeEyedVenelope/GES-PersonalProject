@@ -7,6 +7,7 @@ public class Food_Collect : MonoBehaviour
 {
     public Text countText;
     private AudioSource audioSource;
+    private Animator animator;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
 
@@ -18,6 +19,7 @@ public class Food_Collect : MonoBehaviour
 	private void Start ()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         SetCountText();
@@ -30,6 +32,7 @@ public class Food_Collect : MonoBehaviour
             count++;
             SetCountText();
             audioSource.Play();
+            animator.enabled = false;
             spriteRenderer.enabled = false;
             boxCollider2D.enabled = false;
             Destroy(gameObject, audioSource.clip.length);
@@ -38,7 +41,7 @@ public class Food_Collect : MonoBehaviour
 	
     void SetCountText()
     {
-        switch (this.gameObject.tag)
+        switch (gameObject.tag)
         {
             case "Beer":
                 itemName = "Beer";
@@ -62,7 +65,6 @@ public class Food_Collect : MonoBehaviour
                 break;
                 
         }
-        countText.text = itemName + " (" + count.ToString() + "/" + itemCount + ")";
-            
+        countText.text = itemName + " (" + count.ToString() + "/" + itemCount + ")";       
     }
 }
