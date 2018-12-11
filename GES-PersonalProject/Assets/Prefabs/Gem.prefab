@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61620399063875938}
   - component: {fileID: 95105103653348240}
   - component: {fileID: 82051889399290332}
-  - component: {fileID: 114647410307087060}
+  - component: {fileID: 114878272614562148}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834661867582744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.110079, y: 6.3858166, z: 0}
+  m_LocalPosition: {x: 13.57, y: -2.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -182,7 +182,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114647410307087060
+--- !u!114 &114878272614562148
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1834661867582744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859c37094fd3ed840a706eb97d873179, type: 3}
+  m_Script: {fileID: 11500000, guid: 9498189310fedff46bdab8d329f396c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
