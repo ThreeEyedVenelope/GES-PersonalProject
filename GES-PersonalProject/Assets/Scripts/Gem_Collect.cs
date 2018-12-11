@@ -9,6 +9,7 @@ public class Gem_Collect : MonoBehaviour {
     public Text countText;
 
     private AudioSource audioSource;
+
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;

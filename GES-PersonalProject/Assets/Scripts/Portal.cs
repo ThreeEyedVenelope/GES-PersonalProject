@@ -32,6 +32,8 @@ public class Portal : MonoBehaviour
         {
             Debug.Log("Player activated door.");
             SceneManager.LoadScene(sceneToLoad);
+            Gem_Collect.count = 0;
+            Collect.count = 0;
         }
     }
 }

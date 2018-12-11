@@ -5,8 +5,11 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
 
+    /*[SerializeField]
+    private Color inactivatedColor, activatedColor;*/
+
     [SerializeField]
-    private Color inactivatedColor, activatedColor;
+    private float inactivatedScale = 1, activatedScale = 1.5f;
 
     private bool isActivated = false;
     private SpriteRenderer spriteRenderer;
@@ -27,9 +30,19 @@ public class Checkpoint : MonoBehaviour
         spriteRenderer.color = color;
     }*/
 
+    private void UpdateScale()
+    {
+        float scale = inactivatedScale;
+        if (isActivated)
+            scale = activatedScale;
+
+        transform.localScale = Vector3.one * scale;
+    }
+
     public void SetIsActivated(bool value)
     {
         isActivated = value;
+        UpdateScale();
         //UpdateColor();
     }
 
