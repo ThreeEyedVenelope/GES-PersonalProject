@@ -7,9 +7,6 @@ public class Key : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
 
-    Gem_Collect GemCollect = new Gem_Collect();
-    //Collect Collect = new Collect();
-
     // Use this for initialization
     void Start ()
     {

@@ -8,8 +8,14 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private string sceneToLoad;
 
+    private AudioSource audioSource;
+
     private bool isPlayerInTrigger;
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -30,6 +36,7 @@ public class Portal : MonoBehaviour
     {
         if (isPlayerInTrigger)
         {
+            audioSource.Play();
             Debug.Log("Player activated door.");
             SceneManager.LoadScene(sceneToLoad);
             Gem_Collect.count = 0;
